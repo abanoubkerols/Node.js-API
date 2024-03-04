@@ -49,7 +49,7 @@
         async function fetchData(searchQuery = '') {
             const userDataContainer = document.getElementById('userData');
             try {
-                let url = 'http://localhost:3000/users'
+                let url = 'https://node-js-api-4.onrender.com/users'
                 if (searchQuery) {
                     url += `?name=${encodeURIComponent(searchQuery)}`.trim();
                     console.log(url)
