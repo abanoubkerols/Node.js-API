@@ -61,24 +61,30 @@ app.get('/users', (req, res) => {
         criteria.active = req.query.active.toLowerCase() === 'true'
       }
 
-      
       filteredUsers = filterUsers(criteria)
+    
     }
-    const sortedUsers = sortUsers(filteredUsers)
+    
+    if (!filteredUsers.length ) {
+      throw new Error('No users found matching the search criteria')
+    }
 
-    const { averageAge, activeCount, inactiveCount } = aggregateData(filteredUsers)
+    const sortedUsers = sortUsers(filteredUsers)
+   
+    const { averageAge, activeCount, inactiveCount } =
+      aggregateData(filteredUsers)
 
     res.json({ users: sortedUsers, averageAge, activeCount, inactiveCount })
   } catch (err) {
     console.error(err.stack)
-    res.status(500).json({ error: 'Something went wrong!' })
+    res.status(500).json({ error: err.message })
   }
 })
 // Error handling middleware
 app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).send('Something went wrong!');
-});
+  console.error(err.stack)
+  res.status(500).send('Something went wrong!')
+})
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`)
