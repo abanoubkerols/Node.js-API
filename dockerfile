@@ -1,4 +1,4 @@
-# Use Node.js 14 LTS as the base image
+# Use Node.js 20 LTS as the base image
 FROM node:slim
 
 # Set the working directory in the container
