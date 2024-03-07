@@ -23,7 +23,7 @@ docker pull 1222623186/abanoubkerols_nodetask0.0.1
 - Filter Users: Filter users based on (e.g., age, active status).
 -  Data Aggregation: Calculate the average age of users, and count the number of active and inactive users.
 - Sort Users: Sort the users by their last login date.
-- Search Functionality: Implement a simple search functionality to - find users by name (exact match not required, case insensitive).
+- Search Functionality: Implement a simple search functionality to - find users by name 
 - API Endpoint:  an endpoint that accepts filter parameters and returns the filtered list of users.
 
 
