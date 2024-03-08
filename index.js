@@ -1,21 +1,14 @@
 import express from 'express'
 import cors from 'cors'
 
-
 import { router } from './controller/userRouter.js'
 
 const app = express()
 
-
 app.use(cors())
 const PORT = 3000
 
-
-
-
-
 app.use(`/`,router)
-
 
 // Error handling middleware
 app.use((err, req, res, next) => {
